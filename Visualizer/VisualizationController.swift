@@ -127,7 +127,6 @@ class VisualizationController : NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.title = visualization!.name ?? "Undefined"
-        guard let visibleFrame = self.window?.screen?.visibleFrame else { return }
         //Swift.print("Visible frame is : \(visibleFrame)")
         self.setupSizeDueToLoad()
         if masterController!.musicPlayer.isLoaded {

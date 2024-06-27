@@ -875,6 +875,11 @@
                         </comboBoxCell>
                         <connections>
                             <binding destination="rJr-8p-bdh" name="contentValues" keyPath="arrangedObjects" id="Ce3-eF-xL4"/>
+                            <binding destination="YT6-p9-tEF" name="enabled" keyPath="isPlaying" id="c2z-4X-QKY">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
                             <binding destination="Voe-Tx-rLC" name="value" keyPath="musicName" previousBinding="Ce3-eF-xL4" id="ccN-Ue-rPE"/>
                         </connections>
                     </comboBox>

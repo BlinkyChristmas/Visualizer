@@ -140,11 +140,14 @@ class SettingsData : NSObject {
     }
     
     func loadFromDefaults(keys:Set<TrackingKeys>) throws {
-        let teamIdPrefix = Bundle.main.object(forInfoDictionaryKey: "TeamIdentifierPrefix") as! String
-        let groupDefaultString = Bundle.main.object(forInfoDictionaryKey: "GroupDefaultString") as! String
+        //let teamIdPrefix = Bundle.main.object(forInfoDictionaryKey: "TeamIdentifierPrefix") as! String
+        //let groupDefaultString = Bundle.main.object(forInfoDictionaryKey: "GroupDefaultString") as! String
+        /*
         guard let groupDefaults = UserDefaults(suiteName: teamIdPrefix + "." + groupDefaultString) else {
             throw GeneralError(errorMessage: "Unable to obtain group default: \(teamIdPrefix + "." + groupDefaultString )")
         }
+         */
+        let groupDefaults = UserDefaults.standard
         for key in keys {
             switch key {
                 
@@ -252,11 +255,14 @@ class SettingsData : NSObject {
         }
     }
     func saveToDefaults(keys:Set<TrackingKeys>) throws {
-        let teamIdPrefix = Bundle.main.object(forInfoDictionaryKey: "TeamIdentifierPrefix") as! String
-        let groupDefaultString = Bundle.main.object(forInfoDictionaryKey: "GroupDefaultString") as! String
+        //let teamIdPrefix = Bundle.main.object(forInfoDictionaryKey: "TeamIdentifierPrefix") as! String
+        //let groupDefaultString = Bundle.main.object(forInfoDictionaryKey: "GroupDefaultString") as! String
+        /*
         guard let groupDefaults = UserDefaults(suiteName: teamIdPrefix + "." + groupDefaultString) else {
             throw GeneralError(errorMessage: "Unable to obtain group default: \(teamIdPrefix + "." + groupDefaultString )")
         }
+         */
+        let groupDefaults = UserDefaults.standard
         for key in keys {
             switch key {
                 
