@@ -10,13 +10,12 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSWindowDelegate {
 
     @IBOutlet var settingsData:SettingsData!
     @IBOutlet var settingsDialog:SettingsDialog!
-    @objc dynamic var seekTime = 0.0  {
-        didSet{
-            musicPlayer.currentTime = seekTime
-        }
-    }
+    @objc dynamic var seekTime = 0.0
     
     @IBOutlet var musicPlayer:MusicPlayer!
+    @IBAction func seekToTime(_ sender: Any?) {
+        self.musicPlayer.currentTime = seekTime
+    }
     @objc dynamic  var musicTitles = [String]()
     @objc dynamic var musicName:String? {
         didSet{
