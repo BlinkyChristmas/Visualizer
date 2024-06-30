@@ -909,14 +909,26 @@
                             <binding destination="YT6-p9-tEF" name="value" keyPath="volume" id="F87-qG-7Lw"/>
                         </connections>
                     </slider>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EW1-lK-WRZ">
+                        <rect key="frame" x="12" y="13" width="132" height="32"/>
+                        <buttonCell key="cell" type="push" title="Add Visulization" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r5O-IB-Hfi">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="newDocument:" target="Voe-Tx-rLC" id="fzl-Ar-Zag"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Jxr-XD-SfO" firstAttribute="firstBaseline" secondItem="Ga7-oY-WHG" secondAttribute="firstBaseline" id="2WY-RV-OH9"/>
                     <constraint firstItem="GY0-Lp-DaK" firstAttribute="leading" secondItem="HeW-7O-KTa" secondAttribute="trailing" constant="30" id="54a-lQ-6a7"/>
                     <constraint firstItem="9c9-2g-qrB" firstAttribute="leading" secondItem="Ga7-oY-WHG" secondAttribute="leading" id="7p6-Wh-4mx"/>
+                    <constraint firstItem="EW1-lK-WRZ" firstAttribute="leading" secondItem="YTv-mN-31d" secondAttribute="leading" id="86U-xD-RTj"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="firstBaseline" secondItem="YTv-mN-31d" secondAttribute="firstBaseline" id="8jF-YK-Klx"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="9LV-ZG-EKT"/>
                     <constraint firstItem="YTv-mN-31d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="19" id="CAi-w0-JBY"/>
+                    <constraint firstItem="9c9-2g-qrB" firstAttribute="firstBaseline" secondItem="EW1-lK-WRZ" secondAttribute="firstBaseline" id="Eav-Ul-Wid"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="Igu-QS-PyB"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="firstBaseline" secondItem="GY0-Lp-DaK" secondAttribute="firstBaseline" id="Kpk-Ab-a2x"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="firstBaseline" secondItem="fhX-Wm-6FC" secondAttribute="firstBaseline" id="MZD-XL-Z9o"/>
@@ -940,6 +952,7 @@
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="firstBaseline" secondItem="OI9-d8-PwI" secondAttribute="firstBaseline" id="rBK-NW-xMV"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="firstBaseline" secondItem="qMf-le-dFo" secondAttribute="firstBaseline" id="reR-yg-GJu"/>
                     <constraint firstItem="Ga7-oY-WHG" firstAttribute="firstBaseline" secondItem="0yO-yT-oNV" secondAttribute="firstBaseline" id="sF8-gV-LOi"/>
+                    <constraint firstItem="9c9-2g-qrB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EW1-lK-WRZ" secondAttribute="trailing" constant="470" id="uWP-qx-FJa"/>
                     <constraint firstItem="0yO-yT-oNV" firstAttribute="leading" secondItem="GY0-Lp-DaK" secondAttribute="trailing" constant="8" symbolic="YES" id="wg9-kh-RXF"/>
                     <constraint firstItem="kDU-Pn-Cpu" firstAttribute="leading" secondItem="Jxr-XD-SfO" secondAttribute="trailing" constant="48" id="xej-3B-ZiB"/>
                 </constraints>

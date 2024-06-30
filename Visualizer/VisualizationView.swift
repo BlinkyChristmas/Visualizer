@@ -22,12 +22,21 @@ class VisualizationView : NSView {
     
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
+        guard self.window != nil else { return }
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor.black.cgColor
         guard self.superview?.window?.windowController != nil else { return }
         let controller = self.superview!.window!.windowController! as! VisualizationController
         let origin = controller.visualization!.visualOrigin
         self.window?.setFrameOrigin(origin)
+    }
+    override func viewWillMove(toWindow newWindow: NSWindow?) {
+        super.viewWillMove(toWindow: newWindow)
+        if newWindow == nil {
+            // we need to close
+            let controller = self.superview!.window!.windowController! as! VisualizationController
+            controller.masterController?.windowWillClose(controller: controller)
+        }
     }
     
     override func draw(_ dirtyRect: NSRect) {

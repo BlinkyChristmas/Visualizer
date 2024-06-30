@@ -9,8 +9,14 @@ class VisualizationController : NSWindowController {
     }
     @IBOutlet var visualView:VisualizationView!
     
-    var visualization:Visualization?
+    var visualization:Visualization? {
+        didSet{
+            guard self.window != nil,visualization != nil else { return }
+            self.setupSizeDueToLoad()
+        }
+    }
     var lightFile:LightFile?
+    var closeObserver:Any?
     
     var musicTitleObserver:NSKeyValueObservation?
     deinit {
@@ -62,12 +68,6 @@ class VisualizationController : NSWindowController {
             self.window?.setFrame(NSRect(origin: self.window!.frame.origin, size: size), display: true)
         }
     }
-    
-    override func close() {
-        self.masterController?.windowWillClose(controller: self)
-        super.close()
-    }
-    
     func draw(_ dirtyRect: NSRect) {
         NSColor.black.setFill()
         NSBezierPath.fill(self.visualView.bounds)
@@ -106,19 +106,21 @@ class VisualizationController : NSWindowController {
     
     func setupSizeDueToLoad() {
         // Ok now we get to do all the fun stuff!
+        self.oneShot()
         guard let visualization = self.visualization else { return }
+        
         var origin = self.window!.frame.origin
-        if visualization.visualOrigin != NSPoint.zero {
-            origin = visualization.visualOrigin
-        }
-        if visualization.visualSize == NSSize.zero {
-            return
-        }
-        self.window!.setFrame(NSRect(origin: origin, size: visualization.visualSize), display: true)
-        Swift.print("Origin for \(self.window!.title) is \(origin)")
-        self.window?.setFrameOrigin(origin)
-        // Now, we adjust to the our scale
-        self.visualScale = visualization.visualScale
+         if visualization.visualOrigin != NSPoint.zero {
+             origin = visualization.visualOrigin
+         }
+         if visualization.visualSize == NSSize.zero {
+             return
+         }
+         self.window!.setFrame(NSRect(origin: origin, size: visualization.visualSize), display: true)
+         //Swift.print("Origin for \(self.window!.title) is \(origin)")
+         self.window?.setFrameOrigin(origin)
+         // Now, we adjust to the our scale
+         self.visualScale = visualization.visualScale
 
     }
     override func awakeFromNib() {
@@ -126,15 +128,20 @@ class VisualizationController : NSWindowController {
     }
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.window?.title = visualization!.name ?? "Undefined"
-        //Swift.print("Visible frame is : \(visibleFrame)")
-        self.setupSizeDueToLoad()
+        self.oneShot()
+   }
+    func oneShot() {
+        guard self.visualization != nil, self.masterController != nil else { return }
+        self.window?.title = visualization?.name ?? "Undefined"
+        guard masterController != nil else { return }
         if masterController!.musicPlayer.isLoaded {
             let url = masterController!.settingsData.lightDirectory!.appending(path: self.visualization!.dataLocation!).appending(path: masterController!.musicPlayer.musicTitle).appendingPathExtension("light")
             self.lightFile = try? LightFile(url: url)
 
         }
- 
-   }
-
+        closeObserver = NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification, object: self.window!, queue: .main, using: { notification in
+            self.masterController?.windowWillClose(controller: self)
+            NotificationCenter.default.removeObserver(self.window!)
+        })
+    }
 }
