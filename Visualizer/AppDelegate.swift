@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSWindowDelegate {
     
     var bundleDictionary = [String:LightBundle]()
     var bundleObserver:NSKeyValueObservation?
+    var musicObserver:NSKeyValueObservation?
     var controllers = [VisualizationController]()
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -42,6 +43,14 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSWindowDelegate {
         bundleObserver = settingsData.observe(\.bundleFile, changeHandler: { settings, _ in
             self.processBundles()
         })
+        musicObserver = self.settingsData.observe(\.musicDirectory, changeHandler: { settings, _ in
+            do {
+                self.musicTitles = try contentsOf(url: self.settingsData.musicDirectory,with: "wav", includeExtension: false).sorted()
+            }
+            catch {
+                self.musicTitles = [String]()
+            }
+        })
         do{
             self.processBundles()
             musicTitles = try contentsOf(url: self.settingsData.musicDirectory,with: "wav", includeExtension: false).sorted()
@@ -53,6 +62,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSWindowDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        bundleObserver?.invalidate()
+        bundleObserver = nil
+        musicObserver?.invalidate()
+        musicObserver = nil
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
