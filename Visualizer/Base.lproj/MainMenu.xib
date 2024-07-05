@@ -692,12 +692,12 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="2511" y="680" width="1280" height="93"/>
             <rect key="screenRect" x="0.0" y="0.0" width="5120" height="1415"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1280" height="93"/>
+            <view key="contentView" misplaced="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="1294" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField toolTip="Current Time" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ga7-oY-WHG">
-                        <rect key="frame" x="607" y="52" width="66" height="21"/>
+                        <rect key="frame" x="614" y="52" width="66" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="66" id="Qyf-0h-nkw"/>
                         </constraints>
@@ -725,7 +725,7 @@
                         </connections>
                     </textField>
                     <button toolTip="Music Control" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9c9-2g-qrB">
-                        <rect key="frame" x="600" y="13" width="80" height="32"/>
+                        <rect key="frame" x="607" y="13" width="80" height="32"/>
                         <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f1A-F1-OwV">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -737,7 +737,7 @@
                         </connections>
                     </button>
                     <textField toolTip="Seek Time" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0yO-yT-oNV">
-                        <rect key="frame" x="447" y="52" width="66" height="21"/>
+                        <rect key="frame" x="454" y="52" width="66" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="66" id="Lee-s0-uWo"/>
                         </constraints>
@@ -755,7 +755,7 @@
                         </connections>
                     </textField>
                     <button toolTip="Seek To Time In Music" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GY0-Lp-DaK">
-                        <rect key="frame" x="382" y="45" width="64" height="32"/>
+                        <rect key="frame" x="382" y="45" width="71" height="32"/>
                         <buttonCell key="cell" type="push" title="Seek" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="83Z-SI-s4O">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -775,7 +775,7 @@
                         </connections>
                     </button>
                     <textField toolTip="Playback Speed" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fhX-Wm-6FC">
-                        <rect key="frame" x="830" y="52" width="66" height="21"/>
+                        <rect key="frame" x="837" y="52" width="66" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="66" id="IbM-Xv-PLz"/>
                         </constraints>
@@ -799,7 +799,7 @@
                         </connections>
                     </textField>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qMf-le-dFo">
-                        <rect key="frame" x="897" y="49" width="19" height="28"/>
+                        <rect key="frame" x="904" y="49" width="19" height="28"/>
                         <stepperCell key="cell" continuous="YES" alignment="left" increment="0.050000000000000003" minValue="0.10000000000000001" maxValue="1" doubleValue="0.10000000000000001" id="Gr4-Z1-nL9"/>
                         <connections>
                             <binding destination="YT6-p9-tEF" name="enabled" keyPath="isPlaying" id="Gv8-hB-ko4">
@@ -811,7 +811,7 @@
                         </connections>
                     </stepper>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kDU-Pn-Cpu">
-                        <rect key="frame" x="734" y="55" width="90" height="16"/>
+                        <rect key="frame" x="741" y="55" width="90" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Playback Rate" id="wZe-t5-ySL">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -819,7 +819,7 @@
                         </textFieldCell>
                     </textField>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OI9-d8-PwI">
-                        <rect key="frame" x="551" y="55" width="50" height="16"/>
+                        <rect key="frame" x="558" y="55" width="50" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Current" id="eWr-jL-HE4">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -842,7 +842,7 @@
                         </connections>
                     </textField>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jxr-XD-SfO">
-                        <rect key="frame" x="672" y="49" width="19" height="28"/>
+                        <rect key="frame" x="679" y="49" width="19" height="28"/>
                         <stepperCell key="cell" continuous="YES" alignment="left" increment="0.036999999999999998" maxValue="100" id="0on-c6-ZXk"/>
                         <connections>
                             <binding destination="YT6-p9-tEF" name="value" keyPath="currentTime" previousBinding="Ijk-Q7-0Hq" id="i8D-Qy-ghT"/>
@@ -885,7 +885,7 @@
                         </connections>
                     </comboBox>
                     <button toolTip="Mute Music" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qkx-lO-v8I">
-                        <rect key="frame" x="1127" y="54" width="75" height="18"/>
+                        <rect key="frame" x="1134" y="54" width="75" height="18"/>
                         <buttonCell key="cell" type="check" title="Muted" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xdp-yg-A7i">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -898,7 +898,7 @@
                         </connections>
                     </button>
                     <slider toolTip="Music Volume" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oa1-bb-MUo">
-                        <rect key="frame" x="933" y="46" width="190" height="28"/>
+                        <rect key="frame" x="940" y="46" width="190" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="186" id="iq1-4q-lB1"/>
                         </constraints>
@@ -910,8 +910,8 @@
                         </connections>
                     </slider>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EW1-lK-WRZ">
-                        <rect key="frame" x="12" y="13" width="132" height="32"/>
-                        <buttonCell key="cell" type="push" title="Add Visulization" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r5O-IB-Hfi">
+                        <rect key="frame" x="12" y="13" width="139" height="32"/>
+                        <buttonCell key="cell" type="push" title="Add Visualization" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r5O-IB-Hfi">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
