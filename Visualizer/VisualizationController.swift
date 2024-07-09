@@ -121,9 +121,10 @@ class VisualizationController : NSWindowController {
     func findMaxOffset(visualization:Visualization) -> Int {
         var rvalue = 0
         for item in visualization.visualItems {
-            let (_,maxOffset) = item.lightBundle!.rangeInFrame
-            rvalue = max(rvalue,maxOffset + item.offset)
+            let (_,temp) = item.lightBundle!.rangeInFrame
+            rvalue = max(rvalue,temp + item.offset)
         }
+        
         return rvalue
     }
     func setupSizeDueToLoad() {
@@ -160,6 +161,7 @@ class VisualizationController : NSWindowController {
             let url = masterController!.settingsData.lightDirectory!.appending(path: self.visualization!.dataLocation!).appending(path: masterController!.musicPlayer.musicTitle).appendingPathExtension("light")
             self.lightFile = try? LightFile(url: url)
             if self.lightFile != nil {
+                self.maxOffset = self.findMaxOffset(visualization: visualization!)
                 if self.maxOffset > self.lightFile!.frameLength {
                     NSAlert(error: GeneralError(errorMessage: "Visualization exceeds frame length")).beginSheetModal(for: self.window!)
                 }
