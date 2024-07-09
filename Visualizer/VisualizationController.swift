@@ -63,7 +63,11 @@ class VisualizationController : NSWindowController {
                             url = url!.appending(path: self.visualization!.dataLocation!).appending(path: player.musicTitle).appendingPathExtension("light")
                             
                             self.lightFile = try? LightFile(url: url!)
-                            NSAlert(error: GeneralError(errorMessage: "Visualization exceeds frame length")).beginSheetModal(for: self.window!)
+                            if self.lightFile != nil {
+                                if self.maxOffset > self.lightFile!.frameLength {
+                                    NSAlert(error: GeneralError(errorMessage: "Visualization exceeds frame length")).beginSheetModal(for: self.window!)
+                                }
+                            }
                         }
                     }
                 })
@@ -81,7 +85,7 @@ class VisualizationController : NSWindowController {
         NSColor.black.setFill()
         NSBezierPath.fill(self.visualView.bounds)
         guard let lightFile = lightFile else { return }
-        guard frameLength <= self.maxOffset else { return }
+        guard self.maxOffset <= frameLength  else { return }
         guard let visualization = visualization else { return }
         guard let data = try? lightFile.frameFor(frameNumber: currentFrame) else {  return }
         guard !visualization.visualItems.isEmpty else { return }
@@ -118,7 +122,7 @@ class VisualizationController : NSWindowController {
         var rvalue = 0
         for item in visualization.visualItems {
             let (_,maxOffset) = item.lightBundle!.rangeInFrame
-            rvalue = max(rvalue,maxOffset)
+            rvalue = max(rvalue,maxOffset + item.offset)
         }
         return rvalue
     }
@@ -155,7 +159,11 @@ class VisualizationController : NSWindowController {
         if masterController!.musicPlayer.isLoaded {
             let url = masterController!.settingsData.lightDirectory!.appending(path: self.visualization!.dataLocation!).appending(path: masterController!.musicPlayer.musicTitle).appendingPathExtension("light")
             self.lightFile = try? LightFile(url: url)
-            NSAlert(error: GeneralError(errorMessage: "Visualization exceeds frame length")).beginSheetModal(for: self.window!)
+            if self.lightFile != nil {
+                if self.maxOffset > self.lightFile!.frameLength {
+                    NSAlert(error: GeneralError(errorMessage: "Visualization exceeds frame length")).beginSheetModal(for: self.window!)
+                }
+            }
 
         }
         closeObserver = NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification, object: self.window!, queue: .main, using: { notification in
