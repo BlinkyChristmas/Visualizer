@@ -693,7 +693,7 @@
             <rect key="contentRect" x="2511" y="680" width="1280" height="93"/>
             <rect key="screenRect" x="0.0" y="0.0" width="5120" height="1415"/>
             <view key="contentView" misplaced="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1294" height="93"/>
+                <rect key="frame" x="0.0" y="0.0" width="1280" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField toolTip="Current Time" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ga7-oY-WHG">

@@ -111,6 +111,7 @@ extension AppDelegate {
                     let controller = VisualizationController()
                     controller.masterController = self
                     controller.visualization = visualization
+                    
                     //controller.loadWindow()
                     controller.showWindow(self)
                     self.controllers.append(controller)
